@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>header</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="awesome-bootstrap-checkbox.css" />
+    <style>
+        body {
+            font-family: "Open Sans", Helvetica, Arial, sans-serif;
+            text-align: center;
+            font-style: normal;
+        }
+
+        .container-services {
+            text-align: center;
+        }
+
+        .title-services {
+            text-transform: uppercase;
+            font-size: 36px;
+            font-weight: 300;
+            width: 100%;
+
+        }
+
+        .title-services span {
+            color: #00aeef;
+            display: block;
+        }
+
+        .btn-review {
+            background-color: #00aeef;
+            color: white;
+            font-size: 36px;
+            text-transform: uppercase;
+
+            border-radius: 0px;
+        }
+
+        .btn-review:hover {
+            color: white;
+        }
+
+        .row-content,
+        .title-services {
+            margin-bottom: 3.5rem;
+        }
+
+
+        .cro-services {
+            position: relative;
+            text-align: center;
+            color: white;
+            height: 380px;
+            padding: 0;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center center;
+            cursor: pointer;
+        }
+
+        .cro-services-link {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .cro-service-1 {
+            background-image: url(images/cro_audit.jpg);
+        }
+
+        .cro-service-2 {
+            background-image: url(images/cro_for_commerce.jpg);
+        }
+
+        .cro-service-3 {
+            background-image: url(images/cro_for_saas.jpg);
+        }
+
+        .cro-service-4 {
+            background-image: url(images/landing_page_optimization.jpeg);
+        }
+
+
+        .bg-color {
+            background-color: rgba(0, 0, 0, 0.7);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            box-shadow: inset -1px -1px 0px 1px #ffffff;
+        }
+
+        .cro-services img {
+            width: 100%;
+            filter: saturate(3);
+            filter: opacity(50%);
+        }
+
+        .cro-services a {
+            color: white;
+        }
+
+        .cro-services a:hover {
+            color: white;
+            text-decoration: none;
+        }
+
+        .cro-content {
+            font-size: 36px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+
+        }
+
+        /* section Popup*/
+        .form-row {
+            padding-top: 40px;
+            padding-bottom: 40px;
+            padding-right: 4%;
+            padding-left: 4%;
+        }
+
+        .form-row-header {
+            background-color: #E6E6E6;
+            text-align: center;
+            position: relative;
+        }
+
+        .form-row-header .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+        }
+
+        .form-row-header h2 {
+            margin-bottom: .5rem;
+            color: #0076a3;
+            font-weight: bold;
+        }
+
+        .subtitle-services {
+            font-size: 24px;
+            width: 100%;
+            color: #495057;
+        }
+
+        .form-row-popup {
+            text-align: left;
+            font-weight: bold;
+            font-size: 18px;
+            color: white;
+            background-color: #00aeef;
+        }
+
+        .form-row-popup input {
+            background-color: #ebebeb;
+            border-radius: 0;
+            font-size: 18px;
+            font-weight: 300;
+        }
+
+        .form-row-popup label {
+            width: 100%;
+        }
+
+        .form-row-popup .form-check-input {
+            width: 16px;
+            height: 16px;
+            background-color: red;
+        }
+
+        .form-row-popup .btn-review {
+            background-color: white;
+            color: #00aeef;
+            border-radius: 0;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .particular-services {
+            margin-bottom: 0;
+        }
+
+        .select-option {
+            font-size: 16px;
+            font-weight: 300;
+        }
+
+        .form-section-center {
+            text-align: center;
+        }
+
+        .form-check {
+            padding-left: 2rem;
+            margin-top: .5rem;
+        }
+
+        .check-popup {
+            position: relative;
+        }
+
+        .check {
+            width: 16px;
+            height: 16px;
+            display: block;
+            position: absolute;
+            background-color: transparent;
+            border-radius: 50%;
+            border: 1px solid white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .free-review .check {
+            border-radius: 0;
+        }
+
+        .check-label {
+            position: absolute;
+            top: 5px;
+            left: -28px;
+        }
+
+        .check::before {
+            display: block;
+            content: '';
+            border-radius: 100%;
+            height: 8px;
+            width: 8px;
+            top: 3px;
+            left: 3px;
+            position: absolute;
+            z-index: 5;
+        }
+
+        .free-review .check::after {
+            content: '';
+            display: none;
+            position: absolute;
+            left: 5px;
+            top: 0;
+            width: 4px;
+            height: 11px;
+            border: solid #fff;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .free-review .check::before {
+            content: none;
+        }
+
+        .check-popup input[type="checkbox"] {
+            display: none;
+        }
+
+        input[type=checkbox]:checked~.check::before {
+            background: white;
+        }
+
+        input[type=checkbox]:checked~.check::after {
+            display: block;
+        }
+
+        .form-group-popup {
+            margin-bottom: 2rem;
+        }
+
+        .mb-5rem {
+            margin-bottom: .5rem;
+        }
+
+        .modal-body,
+        .container-modal {
+            padding: 0;
+        }
+
+        .check-popup-review {
+            position: relative;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 53%;
+            text-align: center;
+        }
+
+        .form-group-asterisk label:after {
+            content: '*';
+            color: red;
+            padding-left: 8px;
+        }
+
+        @media (max-width: 767px) {
+
+            .cro-content,
+            .btn-review {
+                font-size: 20px;
+            }
+
+            .cro-services {
+                height: 190px;
+            }
+
+            .row-content,
+            .title-services {
+                margin-bottom: 2rem;
+            }
+
+            /* section Popup*/
+
+
+        }
+
+
+        @media (min-width: 576px) {
+            .check-popup-review {
+                width: 68%;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .modal-dialog {
+                max-width: 650px;
+            }
+
+            .check-popup-review {
+                width: 53%;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .modal-dialog {
+                margin: .5rem auto;
+                max-width: 300px;
+            }
+
+            .title-services {
+                font-size: 24px;
+            }
+
+            .subtitle-services,
+            .form-row-popup .btn-review {
+                font-size: 18px;
+            }
+
+            .form-row-popup,
+            .form-row-popup input {
+                font-size: 16px;
+            }
+
+            .select-option {
+                font-size: 14px;
+            }
+
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container container-services">
+        <h2 class="title-services">
+            We will increase your website's <span>conversion rates</span>
+        </h2>
+        <div class="row row-content">
+
+            <div class="  col-6 cro-services cro-service-1 " for="ll">
+                <div class="bg-color"></div>
+                <div class="cro-content">
+                    CRO Audits
+                </div>
+                <a href="https://ontrack.agency/conversion-rate-optimization-audits/" class="cro-services-link"></a>
+            </div>
+
+            <div class="  col-6 cro-services cro-service-2 ">
+                <div class="bg-color"></div>
+                <div class="cro-content">
+                    CRO for <br>Ecommerce
+                </div>
+                <a href="https://ontrack.agency/ecommerce/" class="cro-services-link"></a>
+            </div>
+
+            <div class="  col-6 cro-services cro-service-3 ">
+                <div class="bg-color"></div>
+                <div class="cro-content">
+                    CRO for <br>SaaS
+                </div>
+                <a href="https://ontrack.agency/conversion-rate-optimization-for-saas/" class="cro-services-link"></a>
+            </div>
+
+            <div class="  col-6 cro-services cro-service-4 ">
+                <div class="bg-color"></div>
+                <div class="cro-content">
+                    Landing Page <br>Optimization
+                </div>
+                <a href="https://ontrack.agency/landing-page-optimization/" class="cro-services-link"></a>
+            </div>
+        </div>
+        <button type="button" class="btn btn-review" data-toggle="modal" data-target="#myModal" onclick="openForm()">Get
+            a free site
+            review</button>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div id="myModal  " class="form-popup">
+                            <form class="container container-modal">
+                                <div class="row form-row form-row-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h2 class="title-services">We'd love to hear from you! </h3>
+                                        <span class="subtitle-services"> One of our CRO specialists will<br> get back to
+                                            you within 48
+                                            hours.</span>
+                                </div>
+
+                                <div class="form-row form-row-popup ">
+                                    <div class="form-group form-group-popup form-group-asterisk col-12">
+                                        <label for="helpYou ">How can we help you?</label>
+                                        <input type="text" class="form-control" id="helpYou"
+                                            placeholder="Briefly tell us about the problem you need to solve.">
+                                    </div>
+                                    <div class="form-group form-group-popup col-12">
+                                        <label for="budget">Please share your timeline & budget.</label>
+                                        <input type="text" class="form-control" id="budget"
+                                            placeholder="The more we know the more we can help.">
+                                    </div>
+                                    <div class="form-group form-group-popup col-12">
+                                        <label class="particular-services">Are there any particular services you are
+                                            interested
+                                            in?</label>
+                                        <span class="select-option">*Please select the options that apply.</span>
+
+                                        <div class="form-check">
+
+
+                                            <div class="check-popup">
+                                                <label class="check-label">
+                                                    <input type="checkbox">
+                                                    <span class="check"></span>
+                                                </label>
+
+                                                <label class="form-check-label" for="gridCheckSaas">
+                                                    Conversion Rate Optimization for SaaS
+                                                </label>
+
+                                            </div>
+
+                                            <div class="check-popup">
+                                                <label class="check-label">
+                                                    <input type="checkbox">
+                                                    <span class="check"></span>
+                                                </label>
+                                                <label class="form-check-label" for="gridCheckeCommerce">
+                                                    Conversion Rate Optimization for eCommerce
+                                                </label>
+
+                                            </div>
+                                            <div class="check-popup">
+                                                <label class="check-label">
+                                                    <input type="checkbox">
+                                                    <span class="check"></span>
+                                                </label>
+                                                <label class="form-check-label" for="gridCheckAudits">
+                                                    Conversion Rate Optimization Audits
+                                                </label>
+
+                                            </div>
+                                            <div class="check-popup">
+                                                <label class="check-label">
+                                                    <input type="checkbox">
+                                                    <span class="check"></span>
+                                                </label>
+                                                <label class="form-check-label" for="gridCheckOptimization">
+                                                    Landing Page Optimization
+                                                </label>
+
+                                            </div>
+
+
+
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-group-popup mb-5rem col-12">
+                                        <label>How can we get in touch?</label>
+                                        <input type="text" class="form-control mb-5rem" id="name" name="name"
+                                            placeholder="First & Last Name">
+                                        <input type="email" class="form-control mb-5rem" id="email" name="email"
+                                            placeholder="Email Address " required maxlength="50">
+                                        <input type="text" class="form-control mb-5rem" id="website" name="website"
+                                            placeholder="Website">
+
+
+                                    </div>
+
+
+
+
+                                    <div class="form-group form-group-popup col-12 form-section-center">
+                                        <div class="check-popup check-popup-review">
+                                            <label class="check-label free-review">
+                                                <input type="checkbox">
+                                                <div class="check"></div>
+                                            </label>
+                                            <label class="form-check-label" for="freeReview">
+                                                I want to receive a FREE site review!
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 form-section-center">
+                                        <button type="submit" class="btn btn-review"> Send Message </button>
+
+                                    </div>
+
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
